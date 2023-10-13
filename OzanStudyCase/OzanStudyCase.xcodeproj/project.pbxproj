@@ -16,6 +16,11 @@
 		9129C5B92AD87A07002B11A4 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9129C5B82AD87A07002B11A4 /* UIImageExtension.swift */; };
 		9129C5BF2AD87B60002B11A4 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9129C5BE2AD87B60002B11A4 /* HomeViewController.swift */; };
 		9129C5C12AD87E66002B11A4 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9129C5C02AD87E66002B11A4 /* DetailViewController.swift */; };
+		91645E172AD8B483004DD022 /* CryptoListResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91645E162AD8B483004DD022 /* CryptoListResponse.swift */; };
+		91645E1B2AD8B530004DD022 /* HeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91645E192AD8B530004DD022 /* HeaderTableViewCell.swift */; };
+		91645E1C2AD8B530004DD022 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91645E1A2AD8B530004DD022 /* HeaderTableViewCell.xib */; };
+		91645E1F2AD8B9E1004DD022 /* CryptoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91645E1D2AD8B9E1004DD022 /* CryptoListTableViewCell.swift */; };
+		91645E202AD8B9E1004DD022 /* CryptoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */; };
 		FBA82A65F85381B88662894D /* Pods_OzanStudyCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4E342F7C42EBA9D0D38408 /* Pods_OzanStudyCase.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +37,11 @@
 		9129C5B82AD87A07002B11A4 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		9129C5BE2AD87B60002B11A4 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9129C5C02AD87E66002B11A4 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		91645E162AD8B483004DD022 /* CryptoListResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListResponse.swift; sourceTree = "<group>"; };
+		91645E192AD8B530004DD022 /* HeaderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderTableViewCell.swift; sourceTree = "<group>"; };
+		91645E1A2AD8B530004DD022 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
+		91645E1D2AD8B9E1004DD022 /* CryptoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListTableViewCell.swift; sourceTree = "<group>"; };
+		91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptoListTableViewCell.xib; sourceTree = "<group>"; };
 		C7F2449B7A442AADD3855D07 /* Pods-OzanStudyCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.debug.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.debug.xcconfig"; sourceTree = "<group>"; };
 		CC96EE7C1AD189E227449C59 /* Pods-OzanStudyCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.release.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -54,7 +64,6 @@
 				C7F2449B7A442AADD3855D07 /* Pods-OzanStudyCase.debug.xcconfig */,
 				CC96EE7C1AD189E227449C59 /* Pods-OzanStudyCase.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -103,6 +112,7 @@
 		9129C5B12AD87922002B11A4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				91645E162AD8B483004DD022 /* CryptoListResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,10 +177,22 @@
 		9129C5BD2AD87B41002B11A4 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				91645E182AD8B513004DD022 /* Cells */,
 				9129C5BE2AD87B60002B11A4 /* HomeViewController.swift */,
 				9129C5C02AD87E66002B11A4 /* DetailViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		91645E182AD8B513004DD022 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				91645E192AD8B530004DD022 /* HeaderTableViewCell.swift */,
+				91645E1A2AD8B530004DD022 /* HeaderTableViewCell.xib */,
+				91645E1D2AD8B9E1004DD022 /* CryptoListTableViewCell.swift */,
+				91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +255,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91645E202AD8B9E1004DD022 /* CryptoListTableViewCell.xib in Resources */,
+				91645E1C2AD8B530004DD022 /* HeaderTableViewCell.xib in Resources */,
 				9129C5AA2AD878DB002B11A4 /* LaunchScreen.storyboard in Resources */,
 				9129C5A72AD878DB002B11A4 /* Assets.xcassets in Resources */,
 				9129C5A52AD878D8002B11A4 /* Main.storyboard in Resources */,
@@ -288,12 +312,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91645E1B2AD8B530004DD022 /* HeaderTableViewCell.swift in Sources */,
 				9129C5BF2AD87B60002B11A4 /* HomeViewController.swift in Sources */,
 				9129C59E2AD878D8002B11A4 /* AppDelegate.swift in Sources */,
+				91645E1F2AD8B9E1004DD022 /* CryptoListTableViewCell.swift in Sources */,
 				9129C5A02AD878D8002B11A4 /* SceneDelegate.swift in Sources */,
 				9129C5C12AD87E66002B11A4 /* DetailViewController.swift in Sources */,
 				9129C5B92AD87A07002B11A4 /* UIImageExtension.swift in Sources */,
 				9129C5B62AD879B8002B11A4 /* CellHelper.swift in Sources */,
+				91645E172AD8B483004DD022 /* CryptoListResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

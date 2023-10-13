@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21678"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KGk-i7-Jjw" customClass="HeaderTableViewCell" customModule="OzanStudyCase" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LLm-TW-MS5">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="135" translatesAutoresizingMaskIntoConstraints="NO" id="Axs-l4-uaC">
+                                <rect key="frame" x="16" y="0.0" width="288" height="60"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ranking List" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZX-UG-H06">
+                                        <rect key="frame" x="0.0" y="0.0" width="93" height="60"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vFL-fo-WnP">
+                                        <rect key="frame" x="228" y="0.0" width="60" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="60" id="Nkr-ty-OWI"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="24h Vol"/>
+                                        <connections>
+                                            <action selector="tappedFilterButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BF5-3D-SSa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Axs-l4-uaC" secondAttribute="trailing" constant="16" id="2rj-Iu-WDX"/>
+                            <constraint firstItem="Axs-l4-uaC" firstAttribute="leading" secondItem="LLm-TW-MS5" secondAttribute="leading" constant="16" id="bWh-LQ-VlT"/>
+                            <constraint firstAttribute="height" constant="60" id="cOf-gu-Byb"/>
+                            <constraint firstAttribute="bottom" secondItem="Axs-l4-uaC" secondAttribute="bottom" id="of8-L2-8BI"/>
+                            <constraint firstItem="Axs-l4-uaC" firstAttribute="top" secondItem="LLm-TW-MS5" secondAttribute="top" id="tFC-Y6-oIw"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="LLm-TW-MS5" secondAttribute="trailing" id="C6N-97-ftm"/>
+                    <constraint firstAttribute="bottom" secondItem="LLm-TW-MS5" secondAttribute="bottom" id="OyO-kA-LNY"/>
+                    <constraint firstItem="LLm-TW-MS5" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="gPK-xU-6KT"/>
+                    <constraint firstItem="LLm-TW-MS5" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="k94-zo-xwb"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="filterButton" destination="vFL-fo-WnP" id="LHx-Nc-xyi"/>
+                <outlet property="listTitle" destination="QZX-UG-H06" id="KVX-oU-6wE"/>
+            </connections>
+            <point key="canvasLocation" x="112.97709923664122" y="-8.4507042253521139"/>
+        </tableViewCell>
+    </objects>
+</document>
