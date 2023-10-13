@@ -21,6 +21,8 @@
 		91645E1C2AD8B530004DD022 /* HeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91645E1A2AD8B530004DD022 /* HeaderTableViewCell.xib */; };
 		91645E1F2AD8B9E1004DD022 /* CryptoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91645E1D2AD8B9E1004DD022 /* CryptoListTableViewCell.swift */; };
 		91645E202AD8B9E1004DD022 /* CryptoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */; };
+		9177F27F2AD9DA1900C80668 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177F27E2AD9DA1900C80668 /* NetworkManager.swift */; };
+		9177F2842AD9E32300C80668 /* AllCurrenciesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177F2832AD9E32300C80668 /* AllCurrenciesViewModel.swift */; };
 		FBA82A65F85381B88662894D /* Pods_OzanStudyCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4E342F7C42EBA9D0D38408 /* Pods_OzanStudyCase.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		91645E1A2AD8B530004DD022 /* HeaderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeaderTableViewCell.xib; sourceTree = "<group>"; };
 		91645E1D2AD8B9E1004DD022 /* CryptoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CryptoListTableViewCell.swift; sourceTree = "<group>"; };
 		91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CryptoListTableViewCell.xib; sourceTree = "<group>"; };
+		9177F27E2AD9DA1900C80668 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		9177F2832AD9E32300C80668 /* AllCurrenciesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllCurrenciesViewModel.swift; sourceTree = "<group>"; };
 		C7F2449B7A442AADD3855D07 /* Pods-OzanStudyCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.debug.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.debug.xcconfig"; sourceTree = "<group>"; };
 		CC96EE7C1AD189E227449C59 /* Pods-OzanStudyCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.release.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -96,6 +100,7 @@
 		9129C59C2AD878D8002B11A4 /* OzanStudyCase */ = {
 			isa = PBXGroup;
 			children = (
+				9177F2802AD9E2FD00C80668 /* ViewModel */,
 				9129C5B12AD87922002B11A4 /* Model */,
 				9129C5B32AD87936002B11A4 /* Networks */,
 				9129C5BD2AD87B41002B11A4 /* ViewControllers */,
@@ -127,6 +132,7 @@
 		9129C5B32AD87936002B11A4 /* Networks */ = {
 			isa = PBXGroup;
 			children = (
+				9177F27E2AD9DA1900C80668 /* NetworkManager.swift */,
 			);
 			path = Networks;
 			sourceTree = "<group>";
@@ -193,6 +199,14 @@
 				91645E1E2AD8B9E1004DD022 /* CryptoListTableViewCell.xib */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		9177F2802AD9E2FD00C80668 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				9177F2832AD9E32300C80668 /* AllCurrenciesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -314,10 +328,12 @@
 			files = (
 				91645E1B2AD8B530004DD022 /* HeaderTableViewCell.swift in Sources */,
 				9129C5BF2AD87B60002B11A4 /* HomeViewController.swift in Sources */,
+				9177F27F2AD9DA1900C80668 /* NetworkManager.swift in Sources */,
 				9129C59E2AD878D8002B11A4 /* AppDelegate.swift in Sources */,
 				91645E1F2AD8B9E1004DD022 /* CryptoListTableViewCell.swift in Sources */,
 				9129C5A02AD878D8002B11A4 /* SceneDelegate.swift in Sources */,
 				9129C5C12AD87E66002B11A4 /* DetailViewController.swift in Sources */,
+				9177F2842AD9E32300C80668 /* AllCurrenciesViewModel.swift in Sources */,
 				9129C5B92AD87A07002B11A4 /* UIImageExtension.swift in Sources */,
 				9129C5B62AD879B8002B11A4 /* CellHelper.swift in Sources */,
 				91645E172AD8B483004DD022 /* CryptoListResponse.swift in Sources */,

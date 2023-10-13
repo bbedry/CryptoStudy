@@ -9,6 +9,7 @@ import UIKit
 
 class HeaderTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var listTitle: UILabel!
+    @IBOutlet weak var filterButtonContainerView: UIView!
     @IBOutlet weak var filterButton: UIButton!
     
     override func awakeFromNib() {
@@ -18,7 +19,8 @@ class HeaderTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     }
     
     private func setupUI() {
-        filterButton.backgroundColor = UIColor.purple
+//        filterButton.backgroundColor = UIColor.purple
+        filterButtonContainerView.addCornerRadius(radius: 5)
     }
     
     @IBAction func tappedFilterButton(_ sender: UIButton) {

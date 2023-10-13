@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
 
@@ -17,15 +18,27 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var coinTotalPrice: UILabel!
     @IBOutlet weak var currentPercent: UILabel!
     
+    var currencyData: Coins? {
+        didSet {
+            setupUI()
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         
-        setupUI()
+//        setupUI()
     }
     
     private func setupUI() {
         coinImageContainerView.setCircleView()
+    }
+    
+     func configureCryptoCell() {
+        coinName.text = currencyData?.name
+        coinTitle.text = currencyData?.symbol
+        coinTotalPrice.text = currencyData?.btcPrice
     }
     
 //    override func layoutSubviews() {

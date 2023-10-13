@@ -78,35 +78,31 @@
                         </subviews>
                     </stackView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBh-7G-M5n">
-                        <rect key="frame" x="137.66666666666666" y="16" width="86" height="38"/>
+                        <rect key="frame" x="137.66666666666666" y="16" width="88.333333333333343" height="38"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="3CV-2F-L5t">
-                        <rect key="frame" x="234" y="15.999999999999998" width="78" height="16.333333333333329"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 29 850.15 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05y-zn-JtI">
-                                <rect key="frame" x="0.0" y="0.0" width="78" height="16.333333333333332"/>
-                                <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                    </stackView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$ 29 850.15 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05y-zn-JtI">
+                        <rect key="frame" x="234" y="16" width="78" height="38"/>
+                        <fontDescription key="fontDescription" name="SFProDisplay-Semibold" family="SF Pro Display" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="eBt-7J-euG" firstAttribute="top" secondItem="QLG-Eg-3l5" secondAttribute="top" id="AMp-Dv-mgb"/>
                     <constraint firstAttribute="bottom" secondItem="hBh-7G-M5n" secondAttribute="bottom" constant="16" id="CfR-ge-e8C"/>
                     <constraint firstItem="hBh-7G-M5n" firstAttribute="centerY" secondItem="Aji-Y3-Eay" secondAttribute="centerY" id="D98-ed-f2x"/>
+                    <constraint firstAttribute="trailing" secondItem="05y-zn-JtI" secondAttribute="trailing" constant="8" id="Esf-V9-lca"/>
                     <constraint firstItem="hBh-7G-M5n" firstAttribute="top" secondItem="Aji-Y3-Eay" secondAttribute="top" constant="16" id="Fuo-jO-viE"/>
-                    <constraint firstAttribute="trailing" secondItem="3CV-2F-L5t" secondAttribute="trailing" constant="8" id="KrF-sB-9eg"/>
                     <constraint firstItem="hBh-7G-M5n" firstAttribute="leading" secondItem="eBt-7J-euG" secondAttribute="trailing" constant="10" id="LBB-1m-Nds"/>
                     <constraint firstItem="QLG-Eg-3l5" firstAttribute="leading" secondItem="Aji-Y3-Eay" secondAttribute="leading" constant="16" id="LG1-GE-zOP"/>
-                    <constraint firstItem="3CV-2F-L5t" firstAttribute="top" secondItem="Aji-Y3-Eay" secondAttribute="top" constant="16" id="bd2-2K-iQh"/>
+                    <constraint firstItem="05y-zn-JtI" firstAttribute="top" secondItem="Aji-Y3-Eay" secondAttribute="top" constant="16" id="T6g-DP-yGU"/>
                     <constraint firstAttribute="bottom" secondItem="QLG-Eg-3l5" secondAttribute="bottom" constant="16" id="bhZ-nm-oph"/>
+                    <constraint firstItem="05y-zn-JtI" firstAttribute="leading" secondItem="hBh-7G-M5n" secondAttribute="trailing" constant="8" id="dpf-hT-x1w"/>
                     <constraint firstItem="eBt-7J-euG" firstAttribute="top" secondItem="Aji-Y3-Eay" secondAttribute="top" constant="16" id="hdc-jK-4vw"/>
                     <constraint firstItem="QLG-Eg-3l5" firstAttribute="top" secondItem="Aji-Y3-Eay" secondAttribute="top" constant="16" id="jZ9-PI-xAJ"/>
-                    <constraint firstItem="3CV-2F-L5t" firstAttribute="leading" secondItem="hBh-7G-M5n" secondAttribute="trailing" constant="10.333333333333371" id="vcJ-PU-ENI"/>
+                    <constraint firstItem="05y-zn-JtI" firstAttribute="centerY" secondItem="hBh-7G-M5n" secondAttribute="centerY" id="x0c-jN-AUR"/>
                     <constraint firstItem="eBt-7J-euG" firstAttribute="leading" secondItem="QLG-Eg-3l5" secondAttribute="trailing" constant="8" id="yKB-SU-Q4p"/>
                 </constraints>
             </tableViewCellContentView>

@@ -15,9 +15,10 @@ enum TableViewRows: Int, CaseIterable {
 
 class HomeViewController: UIViewController {
     
-
-
     @IBOutlet weak var tableView: UITableView!
+    
+    var allCurrenciesVM = AllCurrenciesViewModel()
+    var count: Int?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,13 +26,19 @@ class HomeViewController: UIViewController {
         title = "Home Page"
         
         setupUI()
+        fetchRequest()
     }
     
     private func setupUI() {
+        allCurrenciesVM.delegate = self
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(HeaderTableViewCell.self)
         tableView.register(CryptoListTableViewCell.self)
+    }
+    
+    private func fetchRequest() {
+        allCurrenciesVM.apiToGetCurrencyData {}
     }
     
     
@@ -51,7 +58,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         case .rankingList, .none:
             return 1
         case .cryptos:
-            return 3
+            return allCurrenciesVM.getCoinsCount()
 
         }
     }
@@ -63,6 +70,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             return cell
         case .cryptos:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CryptoListTableViewCell.self), for: indexPath) as? CryptoListTableViewCell else { return UITableViewCell()}
+            let model = allCurrenciesVM.currencyData?.data
+            cell.currencyData = model?.coins?[indexPath.row]
+            cell.configureCryptoCell()
             return cell
         case .none:
             return UITableViewCell()
@@ -82,5 +92,15 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.layer.mask = maskLayer
     }
     
+    
+}
+
+extension HomeViewController: AllCurrenciesViewModelDelegate {
+    func updateCell() {
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+
+    }
     
 }
