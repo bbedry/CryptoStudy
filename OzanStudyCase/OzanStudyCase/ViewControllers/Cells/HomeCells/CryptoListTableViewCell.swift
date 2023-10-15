@@ -8,6 +8,7 @@
 import UIKit
 import Kingfisher
 
+
 class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
 
     @IBOutlet weak var topView: UIView!
@@ -17,6 +18,8 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var coinTitle: UILabel!
     @IBOutlet weak var coinTotalPrice: UILabel!
     @IBOutlet weak var currentPercent: UILabel!
+    
+    let charset = CharacterSet(charactersIn: "png")
     
     var currencyData: Coins? {
         didSet {
@@ -39,6 +42,14 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
         coinName.text = currencyData?.name
         coinTitle.text = currencyData?.symbol
         coinTotalPrice.text = currencyData?.btcPrice
+         if let svg = currencyData?.iconUrl {
+             if svg.rangeOfCharacter(from: charset) != nil {
+                 print("\(svg)")
+             } else if let  htmlUrl = currencyData?.iconUrl {
+                 coinImage.setImageUrl(imageUrl: htmlUrl)
+             }
+         }
+         
     }
     
 //    override func layoutSubviews() {

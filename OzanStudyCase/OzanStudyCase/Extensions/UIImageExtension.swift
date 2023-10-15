@@ -11,14 +11,14 @@ import UIKit
 
 extension UIImageView {
     
-//    func setImageUrl(imageUrl: String) {
-//        if let url = URL(string: imageUrl) {
-//            self.kf.indicatorType = .activity
-//            self.kf.setImage(with: url, placeholder: UIImage(named: "place_holder"))
-//        } else {
-//            self.image = UIImage(named: "place_holder")
-//        }
-//    }
+    func setImageUrl(imageUrl: String) {
+        if let url = URL(string: imageUrl) {
+            self.kf.indicatorType = .activity
+            self.kf.setImage(with: url, placeholder: UIImage(named: "place_holder"))
+        } else {
+            self.image = UIImage(named: "place_holder")
+        }
+    }
     
     func setCircleImage() {
         self.layer.borderWidth = 1

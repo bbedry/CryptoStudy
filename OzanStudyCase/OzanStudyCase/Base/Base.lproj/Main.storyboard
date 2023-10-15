@@ -34,24 +34,39 @@
                     <navigationItem key="navigationItem" id="2qn-uY-zud"/>
                     <connections>
                         <outlet property="tableView" destination="ev2-Ow-gEe" id="rF1-JJ-Fc8"/>
-                        <segue destination="MFR-iS-Xhi" kind="show" identifier="pushDetailPage" id="uvZ-qN-nU0"/>
+                        <segue destination="MFR-iS-Xhi" kind="push" identifier="pushDetailPage" id="ufp-CM-cGd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="980.91603053435108" y="-34.507042253521128"/>
         </scene>
-        <!--View Controller-->
+        <!--Detail View Controller-->
         <scene sceneID="6jF-gb-ajh">
             <objects>
-                <viewController id="MFR-iS-Xhi" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="MFR-iS-Xhi" customClass="DetailViewController" customModule="OzanStudyCase" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9mt-Cj-UrK">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Juo-EB-RUq">
+                                <rect key="frame" x="0.0" y="103" width="393" height="715"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="oo9-rk-hmD"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Juo-EB-RUq" firstAttribute="leading" secondItem="oo9-rk-hmD" secondAttribute="leading" id="50R-m1-yCp"/>
+                            <constraint firstItem="Juo-EB-RUq" firstAttribute="top" secondItem="oo9-rk-hmD" secondAttribute="top" id="abd-AS-dVP"/>
+                            <constraint firstItem="oo9-rk-hmD" firstAttribute="trailing" secondItem="Juo-EB-RUq" secondAttribute="trailing" id="kYr-zI-KsG"/>
+                            <constraint firstItem="oo9-rk-hmD" firstAttribute="bottom" secondItem="Juo-EB-RUq" secondAttribute="bottom" id="zbj-ye-fhj"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="EiG-s8-hIM"/>
+                    <connections>
+                        <outlet property="tableView" destination="Juo-EB-RUq" id="jma-td-09x"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q5M-zv-cnt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

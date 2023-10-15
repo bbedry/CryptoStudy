@@ -48,7 +48,7 @@ struct Coins: Codable {
     var sparkline: [String]? = []
     var lowVolume: Bool?
     var coinrankingUrl: String?
-    var twentyFourHourVolume: String?
+    var dailyVolume: String?
     var btcPrice: String?
 }
 
