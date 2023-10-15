@@ -6,5 +6,7 @@ target 'OzanStudyCase' do
   use_frameworks!
 
   pod 'Kingfisher'
+  pod 'SVGKit'
+  pod 'DropdownButton'
 
 end

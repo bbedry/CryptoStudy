@@ -26,7 +26,8 @@
 		9177F2872ADA1CDA00C80668 /* SortTypeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9177F2862ADA1CDA00C80668 /* SortTypeView.swift */; };
 		91B094992ADBD1890038773E /* CurrencyDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B094972ADBD1890038773E /* CurrencyDetailTableViewCell.swift */; };
 		91B0949A2ADBD1890038773E /* CurrencyDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91B094982ADBD1890038773E /* CurrencyDetailTableViewCell.xib */; };
-		FBA82A65F85381B88662894D /* Pods_OzanStudyCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4E342F7C42EBA9D0D38408 /* Pods_OzanStudyCase.framework */; };
+		91B0949C2ADBFD510038773E /* SVG+Kingfisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B0949B2ADBFD510038773E /* SVG+Kingfisher.swift */; };
+		91B0949D2ADC10EE0038773E /* Pods_OzanStudyCase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E4E342F7C42EBA9D0D38408 /* Pods_OzanStudyCase.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		9177F2862ADA1CDA00C80668 /* SortTypeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortTypeView.swift; sourceTree = "<group>"; };
 		91B094972ADBD1890038773E /* CurrencyDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyDetailTableViewCell.swift; sourceTree = "<group>"; };
 		91B094982ADBD1890038773E /* CurrencyDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CurrencyDetailTableViewCell.xib; sourceTree = "<group>"; };
+		91B0949B2ADBFD510038773E /* SVG+Kingfisher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SVG+Kingfisher.swift"; sourceTree = "<group>"; };
 		C7F2449B7A442AADD3855D07 /* Pods-OzanStudyCase.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.debug.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.debug.xcconfig"; sourceTree = "<group>"; };
 		CC96EE7C1AD189E227449C59 /* Pods-OzanStudyCase.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OzanStudyCase.release.xcconfig"; path = "Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -61,7 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBA82A65F85381B88662894D /* Pods_OzanStudyCase.framework in Frameworks */,
+				91B0949D2ADC10EE0038773E /* Pods_OzanStudyCase.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +150,7 @@
 			children = (
 				9129C5B22AD87928002B11A4 /* Controllers */,
 				9129C5B52AD879B8002B11A4 /* CellHelper.swift */,
+				91B0949B2ADBFD510038773E /* SVG+Kingfisher.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 				9129C59E2AD878D8002B11A4 /* AppDelegate.swift in Sources */,
 				91645E1F2AD8B9E1004DD022 /* CryptoListTableViewCell.swift in Sources */,
 				9129C5A02AD878D8002B11A4 /* SceneDelegate.swift in Sources */,
+				91B0949C2ADBFD510038773E /* SVG+Kingfisher.swift in Sources */,
 				9129C5C12AD87E66002B11A4 /* DetailViewController.swift in Sources */,
 				91B094992ADBD1890038773E /* CurrencyDetailTableViewCell.swift in Sources */,
 				9177F2842AD9E32300C80668 /* AllCurrenciesViewModel.swift in Sources */,

@@ -1,2 +1,6 @@
 ${PODS_ROOT}/Target Support Files/Pods-OzanStudyCase/Pods-OzanStudyCase-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/DropdownButton/DropdownButton.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
+${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework
