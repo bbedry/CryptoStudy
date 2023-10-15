@@ -7,7 +7,8 @@
 
 import UIKit
 import Kingfisher
-import SVGKit
+import SDWebImage
+import SDWebImageSVGCoder
 
 class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
 
@@ -59,31 +60,17 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
         
        
         currentPercent.text = "\(currencyData?.change ?? "")%"
+        
         let urlString = currencyData?.iconUrl ?? ""
-
-        if urlString.contains(".svg") {
-//            downloadSVGImages(url: urlString)
-        } else if urlString.contains(".png") {
+        
+        if urlString.contains(".png") {
             coinImage.setImageUrl(imageUrl: urlString)
         } else {
-            
+            let svgString = URL(string: urlString)
+            coinImage.sd_setImage(with: svgString, placeholderImage: nil, context: [.imageCoder: CustomSVGDecoder(fallbackDecoder: SDImageSVGCoder.shared)])
         }
+     
         
+    
      }
-    
-    func downloadSVGImages(url: String?) {
-        DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
-            if let url = NSURL(string: url ?? "") {
-                if let data = NSData(contentsOf: url as URL) {
-                    DispatchQueue.main.async {
-                        if let anSVGImage: SVGKImage = SVGKImage(data: data as Data) {
-                            self?.coinImage.image = anSVGImage.uiImage
-                        }
-                        
-                    }
-                }
-            }
-        }
-    }
-    
 }

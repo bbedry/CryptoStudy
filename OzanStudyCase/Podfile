@@ -6,7 +6,6 @@ target 'OzanStudyCase' do
   use_frameworks!
 
   pod 'Kingfisher'
-  pod 'SVGKit', '~> 3.x'
-  pod 'DropdownButton'
+  pod 'SDWebImageSVGCoder'
 
 end

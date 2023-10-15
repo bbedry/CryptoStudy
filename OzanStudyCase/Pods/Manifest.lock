@@ -1,34 +1,24 @@
 PODS:
-  - CocoaLumberjack (3.8.1):
-    - CocoaLumberjack/Core (= 3.8.1)
-  - CocoaLumberjack/Core (3.8.1)
-  - DropdownButton (0.1.1):
-    - SnapKit (~> 5.0.0)
   - Kingfisher (7.9.0)
-  - SnapKit (5.0.1)
-  - SVGKit (3.0.0):
-    - CocoaLumberjack (~> 3.0)
+  - SDWebImage/Core (5.17.0)
+  - SDWebImageSVGCoder (1.7.0):
+    - SDWebImage/Core (~> 5.6)
 
 DEPENDENCIES:
-  - DropdownButton
   - Kingfisher
-  - SVGKit (~> 3.x)
+  - SDWebImageSVGCoder
 
 SPEC REPOS:
   trunk:
-    - CocoaLumberjack
-    - DropdownButton
     - Kingfisher
-    - SnapKit
-    - SVGKit
+    - SDWebImage
+    - SDWebImageSVGCoder
 
 SPEC CHECKSUMS:
-  CocoaLumberjack: 5c7e64cdb877770859bddec4d3d5a0d7c9299df9
-  DropdownButton: 46000f008fad61db1b148ff866176606083a7c6d
   Kingfisher: 59f908b6d2f403b0a3e539debb0eec05cb27002c
-  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
-  SVGKit: 1ad7513f8c74d9652f94ed64ddecda1a23864dea
+  SDWebImage: 750adf017a315a280c60fde706ab1e552a3ae4e9
+  SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
 
-PODFILE CHECKSUM: 14934e47918928ef51bd146fa47979ac012bbe24
+PODFILE CHECKSUM: b55078a94249ad06f188d0655ba7667e6799ced6
 
 COCOAPODS: 1.12.1
