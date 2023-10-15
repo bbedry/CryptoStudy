@@ -16,6 +16,7 @@ class CurrencyDetailTableViewCell: UITableViewCell, NibLoadableView, ReusableVie
     @IBOutlet weak var percentageChange: UILabel!
     @IBOutlet weak var lowLabelTitle: UILabel!
     @IBOutlet weak var lowestLabelTitle: UILabel!
+    @IBOutlet weak var currencyRanked: UILabel!
     
     var currencyData: Coins?
     
@@ -48,6 +49,7 @@ class CurrencyDetailTableViewCell: UITableViewCell, NibLoadableView, ReusableVie
             percentageChange.textColor = UIColor.red
         }
         
+//        currencyRanked.text = "\(currencyData?.rank ?? 0)"
         
     }
 }

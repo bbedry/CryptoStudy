@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import DropdownButton
 
 enum SortType: Int, CaseIterable {
     case price
