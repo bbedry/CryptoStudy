@@ -20,7 +20,7 @@ struct CryptoListingResponse: Codable {
 
 struct CryptoListingData: Codable {
     var stats: CryptoListStat?
-    var coins: [Coins]?
+    var coins: [Coins?]
   
 }
 

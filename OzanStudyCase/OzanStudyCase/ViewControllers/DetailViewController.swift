@@ -25,8 +25,6 @@ class DetailViewController: UIViewController {
         tableView.register(CurrencyDetailTableViewCell.self)
     }
     
-
-
 }
 
 extension DetailViewController: UITableViewDelegate, UITableViewDataSource {

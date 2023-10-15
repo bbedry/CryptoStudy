@@ -40,14 +40,10 @@ extension SortTypeView {
     private func setupSortTypePickerView() {
         addSubview(sortTypePickerView)
         sortTypePickerView.translatesAutoresizingMaskIntoConstraints = false
-//        sortTypePickerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 0).isActive = true
-//        sortTypePickerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         sortTypePickerView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0).isActive = true
-//        sortTypePickerView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
         sortTypePickerView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0).isActive = true
-        sortTypePickerView.heightAnchor.constraint(equalTo: heightAnchor, constant: sortTypePickerView.frame.height / 3).isActive = true
-//        sortTypePickerView.frame.size.height = 30
-//        sortTypePickerView.frame.size.height = 40
+        sortTypePickerView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: 0).isActive = true
+
        
     }
 }

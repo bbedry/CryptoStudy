@@ -80,7 +80,7 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBh-7G-M5n">
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hBh-7G-M5n">
                         <rect key="frame" x="145.66666666666666" y="16" width="80.333333333333343" height="46"/>
                         <color key="backgroundColor" systemColor="systemOrangeColor"/>
                     </view>

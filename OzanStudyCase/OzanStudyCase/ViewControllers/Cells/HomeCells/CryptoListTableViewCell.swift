@@ -19,8 +19,6 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     @IBOutlet weak var coinTotalPrice: UILabel!
     @IBOutlet weak var currentPercent: UILabel!
     
-    let charset = CharacterSet(charactersIn: "png")
-    
     var currencyData: Coins? {
         didSet {
             setupUI()
@@ -38,33 +36,45 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
         coinImageContainerView.setCircleView()
     }
     
-    func configureCryptoCell() {
-         coinName.text = currencyData?.name
-         coinTitle.text = currencyData?.symbol
-         
-         let currencyTotalPrice =  currencyData?.price ?? ""
-         let floatValue: Float = Float(currencyTotalPrice) ?? 0.0
-         coinTotalPrice.text = "\(String(format: "%.2f", floatValue))$"
-         
-        currentPercent.text = "\(currencyData?.change ?? "")%"
-        let urlString = currencyData?.iconUrl ?? ""
+    func configureCryptoCell(sortType: String) {
         
-        if urlString.contains("svg") {
-            downloadSVGImages(url: urlString)
-        } else {
-            coinImage.setImageUrl(imageUrl: urlString)
+        if sortType == "Price" {
+            let currencyTotalPrice =  currencyData?.price ?? ""
+            let floatValue: Float = Float(currencyTotalPrice) ?? 0.0
+            coinTotalPrice.text = "\(String(format: "%.2f", floatValue))$"
+        } else if sortType == "Daily Volume" {
+            coinTotalPrice.text = currencyData?.dailyVolume ?? ""
+        } else if sortType == "Market Cap" {
+            let currencyMarketCap =  currencyData?.marketCap ?? ""
+            let floatValue: Float = Float(currencyMarketCap) ?? 0.0
+            coinTotalPrice.text = "\(String(format: "%.2f", floatValue))$"
+        } else if sortType == "Change" {
+            coinTotalPrice.text = "\(currencyData?.change ?? "")"
+        } else if sortType == "Listed At" {
+            coinTotalPrice.text = "\(currencyData?.listedAt ?? 0)"
         }
         
+         coinName.text = currencyData?.name
+         coinTitle.text = currencyData?.symbol
+        
        
+        currentPercent.text = "\(currencyData?.change ?? "")%"
+        let urlString = currencyData?.iconUrl ?? ""
+
+        if urlString.contains(".svg") {
+//            downloadSVGImages(url: urlString)
+        } else if urlString.contains(".png") {
+            coinImage.setImageUrl(imageUrl: urlString)
+        } else {
+            
+        }
         
      }
     
     func downloadSVGImages(url: String?) {
         DispatchQueue.global(qos: .background).async { [weak self] () -> Void in
-            if let url = NSURL(string: url ?? ""){
+            if let url = NSURL(string: url ?? "") {
                 if let data = NSData(contentsOf: url as URL) {
-                    let imageAux = UIImage(data: data as Data)
-                    
                     DispatchQueue.main.async {
                         if let anSVGImage: SVGKImage = SVGKImage(data: data as Data) {
                             self?.coinImage.image = anSVGImage.uiImage
@@ -76,18 +86,4 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
         }
     }
     
-}
-
-public struct SVGImgProcessor:ImageProcessor {
-    public var identifier: String = "com.appidentifier.webpprocessor"
-    public func process(item: ImageProcessItem, options: KingfisherParsedOptionsInfo) -> KFCrossPlatformImage? {
-        switch item {
-        case .image(let image):
-            print("already an image")
-            return image
-        case .data(let data):
-            let imsvg = SVGKImage(data: data)
-            return imsvg?.uiImage
-        }
-    }
 }

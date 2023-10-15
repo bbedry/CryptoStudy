@@ -13,6 +13,8 @@ protocol AllCurrenciesViewModelDelegate {
 
 class AllCurrenciesViewModel {
     
+    public var didSuccess: ()->() = { }
+    
     var currencyData: CryptoListingResponse?
     var delegate: AllCurrenciesViewModelDelegate?
     
@@ -50,7 +52,7 @@ class AllCurrenciesViewModel {
     }
     
     func getCoinsCount() -> Int {
-        if let count = currencyData?.data?.coins?.count {
+        if let count = currencyData?.data?.coins.count {
             return count
         } else {
             return 1

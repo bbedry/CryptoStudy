@@ -8,28 +8,8 @@
 import UIKit
 
 
-enum SortType: Int, CaseIterable {
-    case marketCap
-    case listedAt
-    case dailyVolume
-    case change
-    case price
-    
-    var description: String {
-            switch self {
-            case .marketCap: return "Market Cap"
-            case .listedAt   : return "Listed At"
-            case .dailyVolume  : return "Daily Volume"
-            case .change : return "Change"
-            case .price : return "Price"
-            default: return ""
-            }
-        }
 
-}
-
-
-enum TableViewRows: Int, CaseIterable {
+enum TableViewSections: Int, CaseIterable {
     case rankingList
     case cryptos
 }
@@ -37,17 +17,32 @@ enum TableViewRows: Int, CaseIterable {
 class HomeViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
+    var group = DispatchGroup()
+    
     var allCurrenciesVM = AllCurrenciesViewModel()
-    let pickerView = SortTypeView()
+    let sortPickerView = SortTypeView()
+    var selectedValue: String? = "Price"
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         title = "Home Page"
-        
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupUI()
         fetchRequest()
+//        group.notify(queue: .main) {
+//            self.tableView.reloadData()
+//        }
     }
+    
+    
+    
+    
     
     private func setupUI() {
         allCurrenciesVM.delegate = self
@@ -56,37 +51,49 @@ class HomeViewController: UIViewController {
         tableView.register(HeaderTableViewCell.self)
         tableView.register(CryptoListTableViewCell.self)
         
-        pickerView.sortTypePickerView.delegate = self
-        pickerView.sortTypePickerView.dataSource = self
+        sortPickerView.sortTypePickerView.delegate = self
+        sortPickerView.sortTypePickerView.dataSource = self
+
         
     }
     
     private func fetchRequest() {
-        allCurrenciesVM.apiToGetCurrencyData {}
+        group.enter()
+        allCurrenciesVM.apiToGetCurrencyData{}
+        allCurrenciesVM.didSuccess = {
+            self.group.leave()
+        }
+        
+        
     }
     
     func createPickerView() {
-        self.pickerView.isHidden = false
-        tableView.addSubview(pickerView)
+        self.sortPickerView.isHidden = false
+ 
+        view.addSubview(sortPickerView)
+
     }
+    
     
     func nextToVC(currencyDetailData: Coins?) {
         let vc = UIStoryboard.init(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
         vc?.currencyDetailData = currencyDetailData
         self.navigationController?.pushViewController(vc!, animated: true)
     }
+    
 
 }
+
 
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
-        return TableViewRows.allCases.count
+        return TableViewSections.allCases.count
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch TableViewRows(rawValue: section) {
+        switch TableViewSections(rawValue: section) {
         case .rankingList, .none:
             return 1
         case .cryptos:
@@ -98,18 +105,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let model = allCurrenciesVM.currencyData?.data
         
-        switch TableViewRows(rawValue: indexPath.section) {
+        switch TableViewSections(rawValue: indexPath.section) {
         case .rankingList:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: HeaderTableViewCell.self), for: indexPath) as? HeaderTableViewCell else { return UITableViewCell()}
-            cell.currencyData = model?.coins?[indexPath.section]
+            cell.currencyData = model?.coins[indexPath.section]
             cell.delegate = self
-            cell.configureSortType()
+            cell.configureSortType(sortType: selectedValue ?? "")
             return cell
         case .cryptos:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CryptoListTableViewCell.self), for: indexPath) as? CryptoListTableViewCell else { return UITableViewCell()}
-            
-            cell.currencyData = model?.coins?[indexPath.row]
-            cell.configureCryptoCell()
+            cell.currencyData = model?.coins[indexPath.row]
+            cell.configureCryptoCell(sortType: selectedValue ?? "")
             return cell
         case .none:
             return UITableViewCell()
@@ -117,22 +123,18 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         
         
     }
-    
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-    {
-        let verticalPadding: CGFloat = 8
 
-        let maskLayer = CALayer()
-//        maskLayer.cornerRadius = 10    //if you want round edges
-        maskLayer.backgroundColor = UIColor.black.cgColor
-        maskLayer.frame = CGRect(x: cell.bounds.origin.x, y: cell.bounds.origin.y, width: cell.bounds.width, height: cell.bounds.height).insetBy(dx: 0, dy: verticalPadding/2)
-        cell.layer.mask = maskLayer
-    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        self.performSegue(withIdentifier: "pushDetailPage", sender: self)
-        let currencyData = allCurrenciesVM.currencyData?.data?.coins?[indexPath.row]
-        nextToVC(currencyDetailData: currencyData)
+        switch TableViewSections(rawValue: indexPath.section)! {
+        case .cryptos:
+            let currencyData = allCurrenciesVM.currencyData?.data?.coins[indexPath.row]
+            nextToVC(currencyDetailData: currencyData)
+        default:
+            break
+            
+        }
+        
     }
     
   
@@ -161,12 +163,25 @@ extension HomeViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return SortType.allCases.count
-        }
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return SortType(rawValue: row)?.description
+    }
+    
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+    {
+        self.selectedValue = (SortType(rawValue: row)?.description ?? "") as String
         
-        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-            return SortType(rawValue: row)?.description
+        DispatchQueue.main.async {
+            self.tableView.reloadSections([TableViewSections.rankingList.rawValue], with: .automatic)
+            self.tableView.reloadSections([TableViewSections.cryptos.rawValue], with: .automatic)
+           
         }
+      
+        self.sortPickerView.isHidden = true
         
-   
+    }
     
 }
