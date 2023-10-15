@@ -39,9 +39,16 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
     }
     
      func configureCryptoCell() {
-        coinName.text = currencyData?.name
-        coinTitle.text = currencyData?.symbol
-        coinTotalPrice.text = currencyData?.btcPrice
+         coinName.text = currencyData?.name
+         coinTitle.text = currencyData?.symbol
+         
+         let currencyTotalPrice =  currencyData?.price ?? ""
+         let floatValue: Float = Float(currencyTotalPrice) ?? 0.0
+         coinTotalPrice.text = "\(String(format: "%.2f", floatValue))$"
+         
+         currentPercent.text = "\(currencyData?.change ?? "")%"
+         
+         
          if let svg = currencyData?.iconUrl {
              if svg.rangeOfCharacter(from: charset) != nil {
                  print("\(svg)")
@@ -50,12 +57,7 @@ class CryptoListTableViewCell: UITableViewCell, ReusableView, NibLoadableView {
              }
          }
          
-    }
-    
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0))
-//    }
+     }
+
 }
 

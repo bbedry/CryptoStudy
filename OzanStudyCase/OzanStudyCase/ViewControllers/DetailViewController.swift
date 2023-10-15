@@ -15,13 +15,14 @@ class DetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        title = "Coin Detail Page"
-        print("\(currencyDetailData)")
+        title = "\(currencyDetailData?.name ?? "")"
+        setupUI()
     }
     
     private func setupUI() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(CurrencyDetailTableViewCell.self)
     }
     
 
@@ -35,7 +36,10 @@ extension DetailViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: CurrencyDetailTableViewCell.self), for: indexPath) as? CurrencyDetailTableViewCell else { return UITableViewCell()}
+        cell.currencyData = currencyDetailData
+        cell.configureCurrencyCell()
+        return cell
     }
     
     

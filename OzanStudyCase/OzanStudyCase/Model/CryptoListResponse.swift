@@ -45,7 +45,7 @@ struct Coins: Codable {
     var tier: Int?
     var change: String?
     var rank: Int?
-    var sparkline: [String]? = []
+    var sparkline: [String]?
     var lowVolume: Bool?
     var coinrankingUrl: String?
     var dailyVolume: String?
