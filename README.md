@@ -8,6 +8,5 @@ Görsellerin yüklenmesinde herhangi bir sorun yoktu fakat tableview'i reload et
 Bu yüzden app crash oluyordu. (CALayer error)
 Görseller png formatlı gelmesi kingfisher ile çok daha kolay bir şekilde yüklenebilirdi ve app crash'in önüne geçilebilirdi.
 
-# UPDATATE
-
+UPDATATE
 SVG formatlı görsellerin download edilme hatası giderildi. TableView reload ederken AppCrash sorunu çözüldü.
